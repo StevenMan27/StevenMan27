@@ -4,159 +4,169 @@
   .title { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 800; font-size: 30px; letter-spacing: 6px; fill: #ffffff; }
   .cat { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 13px; letter-spacing: 3px; }
   .pill-text { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 13px; }
-  .trace { fill: none; stroke-width: 2; stroke-linecap: round; animation: travel 3.2s linear infinite; }
-  @keyframes travel { to { stroke-dashoffset: -400; } }
-  .glowbar { animation: pulse 2.6s ease-in-out infinite; }
-  .corner { stroke: #38bdf8; stroke-width: 2; fill: none; opacity: 0.85; }
-  .grid { stroke: #ffffff; stroke-opacity: 0.04; stroke-width: 1; }
-  @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.25; }
-  }
+  .glowbar { animation: pulse 3s ease-in-out infinite; }
+  .corner { stroke: #38bdf8; stroke-width: 1.6; fill: none; opacity: 0.85; stroke-linecap: round; }
+  .grid { stroke: #ffffff; stroke-opacity: 0.035; stroke-width: 1; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
   @keyframes drift {
-    0% { transform: translateX(0); }
-    50% { transform: translateX(14px); }
-    100% { transform: translateX(0); }
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(12px); }
   }
   @keyframes glitch {
-    0%, 92%, 100% { transform: translate(0,0); opacity: 0; }
-    93% { transform: translate(-3px,1px); opacity: 0.8; }
-    95% { transform: translate(3px,-1px); opacity: 0.8; }
-    97% { transform: translate(-2px,0); opacity: 0.6; }
+    0%, 94%, 100% { transform: translate(0,0); opacity: 0; }
+    95% { transform: translate(-2.5px,0.8px); opacity: 0.6; }
+    97% { transform: translate(2.5px,-0.8px); opacity: 0.6; }
+    98.5% { transform: translate(-1.5px,0); opacity: 0.35; }
   }
   @keyframes scan {
-    0% { transform: translateY(-40px); }
-    100% { transform: translateY(640px); }
+    0% { transform: translateY(-44px); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { transform: translateY(610px); opacity: 0; }
   }
   .ember { animation: rise linear infinite; }
   @keyframes rise {
     0% { transform: translateY(0); opacity: 0; }
-    10% { opacity: 0.9; }
-    90% { opacity: 0.5; }
-    100% { transform: translateY(-560px); opacity: 0; }
+    15% { opacity: 0.85; }
+    85% { opacity: 0.45; }
+    100% { transform: translateY(-540px); opacity: 0; }
   }
 </style>
 
-<radialGradient id="bgGrad" cx="50%" cy="15%" r="90%">
+<radialGradient id="bgGradSkills" cx="50%" cy="15%" r="90%">
   <stop offset="0%" stop-color="#161B22"/>
   <stop offset="55%" stop-color="#0D1117"/>
   <stop offset="100%" stop-color="#090C10"/>
 </radialGradient>
 
-<radialGradient id="vignette" cx="50%" cy="50%" r="75%">
+<radialGradient id="vignetteSkills" cx="50%" cy="50%" r="75%">
   <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
-  <stop offset="100%" stop-color="#000000" stop-opacity="0.5"/>
+  <stop offset="100%" stop-color="#000000" stop-opacity="0.48"/>
 </radialGradient>
 
-<linearGradient id="rgbBorderSkills" gradientUnits="userSpaceOnUse" x1="0" y1="300" x2="900" y2="300">
-  <stop offset="0%" stop-color="#FF0000">
-    <animate attributeName="stop-color" values="#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF;#FF00FF;#FF0000" dur="3.8s" repeatCount="indefinite"/>
+<linearGradient id="rgbBorderSkills" gradientUnits="userSpaceOnUse" x1="12" y1="300" x2="888" y2="300">
+  <stop offset="0%" stop-color="#FF0055">
+    <animate attributeName="stop-color" values="#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <stop offset="33%" stop-color="#00FF00">
-    <animate attributeName="stop-color" values="#00FF00;#00FFFF;#0000FF;#FF00FF;#FF0000;#FFFF00;#00FF00" dur="3.8s" repeatCount="indefinite"/>
+  <stop offset="25%" stop-color="#FFAA00">
+    <animate attributeName="stop-color" values="#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <stop offset="66%" stop-color="#0000FF">
-    <animate attributeName="stop-color" values="#0000FF;#FF00FF;#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF" dur="3.8s" repeatCount="indefinite"/>
+  <stop offset="50%" stop-color="#00FF88">
+    <animate attributeName="stop-color" values="#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <stop offset="100%" stop-color="#FF00FF">
-    <animate attributeName="stop-color" values="#FF00FF;#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF;#FF00FF" dur="3.8s" repeatCount="indefinite"/>
+  <stop offset="75%" stop-color="#00E5FF">
+    <animate attributeName="stop-color" values="#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <animateTransform attributeName="gradientTransform" type="rotate" from="0 450 300" to="360 450 300" dur="3.8s" repeatCount="indefinite"/>
+  <stop offset="100%" stop-color="#FF00AA">
+    <animate attributeName="stop-color" values="#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA" dur="6s" repeatCount="indefinite"/>
+  </stop>
+  <animateTransform attributeName="gradientTransform" type="rotate" from="0 450 300" to="360 450 300" dur="4s" repeatCount="indefinite"/>
 </linearGradient>
 
-<filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-  <feGaussianBlur stdDeviation="4" result="blur"/>
-  <feMerge>
-    <feMergeNode in="blur"/>
-    <feMergeNode in="SourceGraphic"/>
-  </feMerge>
+<filter id="neonOuterSkills" x="-10%" y="-10%" width="120%" height="120%">
+  <feGaussianBlur stdDeviation="5.5" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
 </filter>
 
-<filter id="softglow" x="-80%" y="-80%" width="260%" height="260%">
-  <feGaussianBlur stdDeviation="8" result="blur"/>
-  <feMerge>
-    <feMergeNode in="blur"/>
-    <feMergeNode in="blur"/>
-    <feMergeNode in="SourceGraphic"/>
-  </feMerge>
+<filter id="neonInnerSkills" x="-10%" y="-10%" width="120%" height="120%">
+  <feGaussianBlur stdDeviation="2" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+<filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+  <feGaussianBlur stdDeviation="3" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
 </filter>
 
 <linearGradient id="scanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
   <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-  <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05"/>
+  <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.06"/>
   <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
 </linearGradient>
 
 <clipPath id="cardClipSkills">
-  <rect x="3" y="3" width="894" height="594" rx="16"/>
+  <rect x="12" y="12" width="876" height="576" rx="16"/>
 </clipPath>
 </defs>
 
-<rect x="3" y="3" width="894" height="594" rx="16" fill="url(#bgGrad)"/>
-<rect x="3" y="3" width="894" height="594" rx="16" fill="url(#vignette)"/>
+<!-- outer neon shadow & ambient aura -->
+<rect x="12" y="12" width="876" height="576" rx="16" fill="none" stroke="url(#rgbBorderSkills)" stroke-width="5.5" opacity="0.32" filter="url(#neonOuterSkills)"/>
+<rect x="12" y="12" width="876" height="576" rx="16" fill="none" stroke="url(#rgbBorderSkills)" stroke-width="2.6" opacity="0.55" filter="url(#neonInnerSkills)"/>
+
+<!-- dark glass card body -->
+<rect x="12" y="12" width="876" height="576" rx="16" fill="url(#bgGradSkills)"/>
+<rect x="12" y="12" width="876" height="576" rx="16" fill="url(#vignetteSkills)"/>
 
 <g clip-path="url(#cardClipSkills)">
   <g style="animation: drift 12s ease-in-out infinite;">
-    <line class="grid" x1="0" y1="60" x2="900" y2="60"/>
-    <line class="grid" x1="0" y1="180" x2="900" y2="180"/>
-    <line class="grid" x1="0" y1="300" x2="900" y2="300"/>
-    <line class="grid" x1="0" y1="420" x2="900" y2="420"/>
-    <line class="grid" x1="0" y1="540" x2="900" y2="540"/>
+    <line class="grid" x1="12" y1="72" x2="888" y2="72"/>
+    <line class="grid" x1="12" y1="186" x2="888" y2="186"/>
+    <line class="grid" x1="12" y1="300" x2="888" y2="300"/>
+    <line class="grid" x1="12" y1="414" x2="888" y2="414"/>
+    <line class="grid" x1="12" y1="528" x2="888" y2="528"/>
   </g>
-  <rect x="0" y="0" width="900" height="40" fill="url(#scanGrad)" style="animation: scan 5s linear infinite;"/>
+  <rect x="12" y="12" width="876" height="40" fill="url(#scanGrad)" style="animation: scan 5.5s linear infinite;"/>
 </g>
 
-<rect x="3" y="3" width="894" height="594" rx="16" fill="none" stroke="url(#rgbBorderSkills)" stroke-width="6" opacity="0.4" filter="url(#softglow)"/>
-<rect x="3" y="3" width="894" height="594" rx="16" fill="none" stroke="url(#rgbBorderSkills)" stroke-width="4"/>
+<!-- razor-thin crisp rotating RGB border + smooth comet -->
+<rect x="12" y="12" width="876" height="576" rx="16" fill="none" stroke="url(#rgbBorderSkills)" stroke-width="1.8" opacity="0.95"/>
+<rect x="12" y="12" width="876" height="576" rx="16" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.5" pathLength="1000" stroke-dasharray="85 915" filter="url(#neonInnerSkills)">
+  <animate attributeName="stroke-dashoffset" from="0" to="-1000" dur="4s" repeatCount="indefinite"/>
+</rect>
 
-<path class="corner" d="M24 60 L24 24 L60 24"/>
-<path class="corner" d="M876 60 L876 24 L840 24"/>
-<path class="corner" d="M24 540 L24 576 L60 576"/>
-<path class="corner" d="M876 540 L876 576 L840 576"/>
+<path class="corner" d="M30 58 L30 30 L58 30"/>
+<path class="corner" d="M870 58 L870 30 L842 30"/>
+<path class="corner" d="M30 542 L30 570 L58 570"/>
+<path class="corner" d="M870 542 L870 570 L842 570"/>
 
-<text x="450" y="62" text-anchor="middle" class="title" filter="url(#softglow)">ARSENAL</text>
-<rect class="glowbar" x="370" y="76" width="160" height="2.5" fill="url(#rgbBorderSkills)" filter="url(#glow)"/>
-<text x="447" y="62" text-anchor="middle" class="title" fill="#00FFFF" style="animation: glitch 6s infinite; opacity:0;">ARSENAL</text>
-<text x="453" y="62" text-anchor="middle" class="title" fill="#FF00FF" style="animation: glitch 6s infinite .1s; opacity:0;">ARSENAL</text>
+<text x="450" y="64" text-anchor="middle" class="title" filter="url(#glow)">ARSENAL</text>
+<rect class="glowbar" x="370" y="78" width="160" height="2" rx="1" fill="url(#rgbBorderSkills)" filter="url(#glow)"/>
+<text x="448" y="64" text-anchor="middle" class="title" fill="#00E5FF" style="animation: glitch 6.5s infinite; opacity:0;">ARSENAL</text>
+<text x="452" y="64" text-anchor="middle" class="title" fill="#FF0055" style="animation: glitch 6.5s infinite .12s; opacity:0;">ARSENAL</text>
 
+<!-- Row 1: Frontend Development -->
 <text x="450" y="148" text-anchor="middle" class="cat" fill="#93c5fd" filter="url(#glow)">FRONTEND DEVELOPMENT</text>
-<rect x="410" y="156" width="80" height="1" fill="#2563eb" opacity="0.5"/>
+<rect x="410" y="156" width="80" height="1" fill="#38bdf8" opacity="0.5"/>
 <g>
-  <g><rect x="241" y="178" width="76" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.5" filter="url(#glow)"/><text x="279" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">REACT</text><rect class="trace" x="241" y="178" width="76" height="34" rx="9" stroke="#38bdf8" stroke-dasharray="30 250" style="animation-delay:.00s"/></g>
-  <g><rect x="331" y="178" width="66" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.5" filter="url(#glow)"/><text x="364" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">VITE</text><rect class="trace" x="331" y="178" width="66" height="34" rx="9" stroke="#38bdf8" stroke-dasharray="30 250" style="animation-delay:.10s"/></g>
-  <g><rect x="411" y="178" width="76" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.5" filter="url(#glow)"/><text x="449" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">BABEL</text><rect class="trace" x="411" y="178" width="76" height="34" rx="9" stroke="#38bdf8" stroke-dasharray="30 250" style="animation-delay:.20s"/></g>
-  <g><rect x="501" y="178" width="76" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.5" filter="url(#glow)"/><text x="539" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">HTML5</text><rect class="trace" x="501" y="178" width="76" height="34" rx="9" stroke="#38bdf8" stroke-dasharray="30 250" style="animation-delay:.30s"/></g>
-  <g><rect x="591" y="178" width="68" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.5" filter="url(#glow)"/><text x="625" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">CSS3</text><rect class="trace" x="591" y="178" width="68" height="34" rx="9" stroke="#38bdf8" stroke-dasharray="30 250" style="animation-delay:.40s"/></g>
+  <g><rect x="241" y="178" width="76" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.2" filter="url(#glow)"/><text x="279" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">REACT</text><rect x="241" y="178" width="76" height="34" rx="9" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.0s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="331" y="178" width="66" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.2" filter="url(#glow)"/><text x="364" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">VITE</text><rect x="331" y="178" width="66" height="34" rx="9" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.2s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="411" y="178" width="76" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.2" filter="url(#glow)"/><text x="449" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">BABEL</text><rect x="411" y="178" width="76" height="34" rx="9" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.4s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="501" y="178" width="76" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.2" filter="url(#glow)"/><text x="539" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">HTML5</text><rect x="501" y="178" width="76" height="34" rx="9" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.6s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="591" y="178" width="68" height="34" rx="9" fill="#0D1117" stroke="#2563eb" stroke-width="1.2" filter="url(#glow)"/><text x="625" y="200" text-anchor="middle" class="pill-text" fill="#bfdbfe">CSS3</text><rect x="591" y="178" width="68" height="34" rx="9" fill="none" stroke="#38bdf8" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.8s" repeatCount="indefinite"/></rect></g>
 </g>
 
+<!-- Row 2: Backend & Database -->
 <text x="450" y="292" text-anchor="middle" class="cat" fill="#c4b5fd" filter="url(#glow)">BACKEND &amp; DATABASE</text>
-<rect x="410" y="300" width="80" height="1" fill="#7c3aed" opacity="0.5"/>
+<rect x="410" y="300" width="80" height="1" fill="#a855f7" opacity="0.5"/>
 <g>
-  <g><rect x="188" y="322" width="92" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.5" filter="url(#glow)"/><text x="234" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">LARAVEL</text><rect class="trace" x="188" y="322" width="92" height="34" rx="9" stroke="#c084fc" stroke-dasharray="30 250" style="animation-delay:.05s"/></g>
-  <g><rect x="294" y="322" width="58" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.5" filter="url(#glow)"/><text x="323" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">PHP</text><rect class="trace" x="294" y="322" width="58" height="34" rx="9" stroke="#c084fc" stroke-dasharray="30 250" style="animation-delay:.15s"/></g>
-  <g><rect x="366" y="322" width="104" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.5" filter="url(#glow)"/><text x="418" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">COMPOSER</text><rect class="trace" x="366" y="322" width="104" height="34" rx="9" stroke="#c084fc" stroke-dasharray="30 250" style="animation-delay:.25s"/></g>
-  <g><rect x="484" y="322" width="92" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.5" filter="url(#glow)"/><text x="530" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">NODE.JS</text><rect class="trace" x="484" y="322" width="92" height="34" rx="9" stroke="#c084fc" stroke-dasharray="30 250" style="animation-delay:.35s"/></g>
-  <g><rect x="590" y="322" width="122" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.5" filter="url(#glow)"/><text x="651" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">POSTGRESQL</text><rect class="trace" x="590" y="322" width="122" height="34" rx="9" stroke="#c084fc" stroke-dasharray="30 250" style="animation-delay:.45s"/></g>
+  <g><rect x="188" y="322" width="92" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.2" filter="url(#glow)"/><text x="234" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">LARAVEL</text><rect x="188" y="322" width="92" height="34" rx="9" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.1s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="294" y="322" width="58" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.2" filter="url(#glow)"/><text x="323" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">PHP</text><rect x="294" y="322" width="58" height="34" rx="9" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.3s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="366" y="322" width="104" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.2" filter="url(#glow)"/><text x="418" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">COMPOSER</text><rect x="366" y="322" width="104" height="34" rx="9" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.5s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="484" y="322" width="92" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.2" filter="url(#glow)"/><text x="530" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">NODE.JS</text><rect x="484" y="322" width="92" height="34" rx="9" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.7s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="590" y="322" width="122" height="34" rx="9" fill="#0D1117" stroke="#7c3aed" stroke-width="1.2" filter="url(#glow)"/><text x="651" y="344" text-anchor="middle" class="pill-text" fill="#ddd6fe">POSTGRESQL</text><rect x="590" y="322" width="122" height="34" rx="9" fill="none" stroke="#c084fc" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.9s" repeatCount="indefinite"/></rect></g>
 </g>
 
+<!-- Row 3: General Programming -->
 <text x="450" y="436" text-anchor="middle" class="cat" fill="#5eead4" filter="url(#glow)">GENERAL PROGRAMMING</text>
-<rect x="410" y="444" width="80" height="1" fill="#0d9488" opacity="0.5"/>
+<rect x="410" y="444" width="80" height="1" fill="#14b8a6" opacity="0.5"/>
 <g>
-  <g><rect x="288" y="466" width="44" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.5" filter="url(#glow)"/><text x="310" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">C</text><rect class="trace" x="288" y="466" width="44" height="34" rx="9" stroke="#2dd4bf" stroke-dasharray="30 250" style="animation-delay:.00s"/></g>
-  <g><rect x="346" y="466" width="62" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.5" filter="url(#glow)"/><text x="377" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">C++</text><rect class="trace" x="346" y="466" width="62" height="34" rx="9" stroke="#2dd4bf" stroke-dasharray="30 250" style="animation-delay:.10s"/></g>
-  <g><rect x="422" y="466" width="90" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.5" filter="url(#glow)"/><text x="467" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">JAVA 23</text><rect class="trace" x="422" y="466" width="90" height="34" rx="9" stroke="#2dd4bf" stroke-dasharray="30 250" style="animation-delay:.20s"/></g>
-  <g><rect x="526" y="466" width="86" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.5" filter="url(#glow)"/><text x="569" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">PYTHON</text><rect class="trace" x="526" y="466" width="86" height="34" rx="9" stroke="#2dd4bf" stroke-dasharray="30 250" style="animation-delay:.30s"/></g>
+  <g><rect x="288" y="466" width="44" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.2" filter="url(#glow)"/><text x="310" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">C</text><rect x="288" y="466" width="44" height="34" rx="9" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.0s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="346" y="466" width="62" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.2" filter="url(#glow)"/><text x="377" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">C++</text><rect x="346" y="466" width="62" height="34" rx="9" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.25s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="422" y="466" width="90" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.2" filter="url(#glow)"/><text x="467" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">JAVA 23</text><rect x="422" y="466" width="90" height="34" rx="9" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.5s" repeatCount="indefinite"/></rect></g>
+  <g><rect x="526" y="466" width="86" height="34" rx="9" fill="#0D1117" stroke="#0d9488" stroke-width="1.2" filter="url(#glow)"/><text x="569" y="488" text-anchor="middle" class="pill-text" fill="#99f6e4">PYTHON</text><rect x="526" y="466" width="86" height="34" rx="9" fill="none" stroke="#2dd4bf" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="45 255"><animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" begin="0.75s" repeatCount="indefinite"/></rect></g>
 </g>
 
-<circle class="ember" cx="80" cy="560" r="1.8" fill="#FF0000" style="animation-duration:4.2s; animation-delay:0s;"/>
-<circle class="ember" cx="150" cy="560" r="1.8" fill="#FFFF00" style="animation-duration:5.1s; animation-delay:0.6s;"/>
-<circle class="ember" cx="230" cy="560" r="1.8" fill="#00FF00" style="animation-duration:3.6s; animation-delay:1.2s;"/>
-<circle class="ember" cx="310" cy="560" r="1.8" fill="#00FFFF" style="animation-duration:4.8s; animation-delay:1.8s;"/>
-<circle class="ember" cx="400" cy="560" r="1.8" fill="#0000FF" style="animation-duration:5.4s; animation-delay:0.3s;"/>
-<circle class="ember" cx="470" cy="560" r="1.8" fill="#FF00FF" style="animation-duration:4.0s; animation-delay:2.1s;"/>
-<circle class="ember" cx="540" cy="560" r="1.8" fill="#00FFFF" style="animation-duration:4.6s; animation-delay:1.0s;"/>
-<circle class="ember" cx="620" cy="560" r="1.8" fill="#FF0000" style="animation-duration:5.0s; animation-delay:0.8s;"/>
-<circle class="ember" cx="700" cy="560" r="1.8" fill="#00FF00" style="animation-duration:4.3s; animation-delay:1.6s;"/>
-<circle class="ember" cx="780" cy="560" r="1.8" fill="#FF00FF" style="animation-duration:3.9s; animation-delay:2.4s;"/>
-<circle class="ember" cx="830" cy="560" r="1.8" fill="#FFFF00" style="animation-duration:5.2s; animation-delay:0.4s;"/>
+<g clip-path="url(#cardClipSkills)">
+  <circle class="ember" cx="80" cy="565" r="1.6" fill="#FF0055" style="animation-duration:4.5s; animation-delay:0s;"/>
+  <circle class="ember" cx="150" cy="565" r="1.6" fill="#FFAA00" style="animation-duration:5.2s; animation-delay:0.6s;"/>
+  <circle class="ember" cx="230" cy="565" r="1.6" fill="#00FF88" style="animation-duration:4.1s; animation-delay:1.2s;"/>
+  <circle class="ember" cx="310" cy="565" r="1.6" fill="#00E5FF" style="animation-duration:4.8s; animation-delay:1.8s;"/>
+  <circle class="ember" cx="400" cy="565" r="1.6" fill="#6366F1" style="animation-duration:5.4s; animation-delay:0.3s;"/>
+  <circle class="ember" cx="470" cy="565" r="1.6" fill="#FF00AA" style="animation-duration:4.3s; animation-delay:2.1s;"/>
+  <circle class="ember" cx="540" cy="565" r="1.6" fill="#00E5FF" style="animation-duration:4.6s; animation-delay:1.0s;"/>
+  <circle class="ember" cx="620" cy="565" r="1.6" fill="#FF0055" style="animation-duration:5.0s; animation-delay:0.8s;"/>
+  <circle class="ember" cx="700" cy="565" r="1.6" fill="#00FF88" style="animation-duration:4.4s; animation-delay:1.6s;"/>
+  <circle class="ember" cx="780" cy="565" r="1.6" fill="#FF00AA" style="animation-duration:4.0s; animation-delay:2.4s;"/>
+  <circle class="ember" cx="830" cy="565" r="1.6" fill="#FFAA00" style="animation-duration:5.1s; animation-delay:0.4s;"/>
+</g>
 </svg>

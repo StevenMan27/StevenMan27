@@ -2,115 +2,155 @@
 <defs>
 <style>
   .name { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 800; font-size: 34px; letter-spacing: 3px; fill: #ffffff; }
-  .sub { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 1px; fill: #38bdf8; }
+  .sub { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; font-size: 14.5px; letter-spacing: 1.2px; fill: #38bdf8; }
   .edu { font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace; font-weight: 500; font-size: 12.5px; letter-spacing: 1px; fill: #94a3b8; }
-  .ach { font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace; font-weight: 600; font-size: 17px; fill: #22d3ee; }
-  .status-text { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 14px; letter-spacing: 2px; fill: #ffffff; }
-  .corner { stroke: #38bdf8; stroke-width: 2; fill: none; opacity: 0.85; }
-  .glowbar { animation: pulse 2.6s ease-in-out infinite; }
-  .trace { fill: none; stroke-width: 2; stroke-linecap: round; stroke-dasharray: 30 250; animation: travel 3.2s linear infinite; }
-  @keyframes travel { to { stroke-dashoffset: -400; } }
-  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.25; } }
-  @keyframes scan { 0% { transform: translateY(-40px); } 100% { transform: translateY(400px); } }
-  @keyframes glitch {
-    0%, 92%, 100% { transform: translate(0,0); opacity: 0; }
-    93% { transform: translate(-3px,1px); opacity: 0.7; }
-    95% { transform: translate(3px,-1px); opacity: 0.7; }
-    97% { transform: translate(-2px,0); opacity: 0.5; }
+  .ach { font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace; font-weight: 600; font-size: 16.5px; fill: #22d3ee; }
+  .status-text { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 13.5px; letter-spacing: 2px; fill: #ffffff; }
+  .corner { stroke: #38bdf8; stroke-width: 1.6; fill: none; opacity: 0.85; stroke-linecap: round; }
+  .grid { stroke: #ffffff; stroke-opacity: 0.03; stroke-width: 1; }
+  .glowbar { animation: pulse 3s ease-in-out infinite; }
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @keyframes scan {
+    0% { transform: translateY(-44px); opacity: 0; }
+    15% { opacity: 1; }
+    85% { opacity: 1; }
+    100% { transform: translateY(390px); opacity: 0; }
   }
-  .clip1 rect { animation: type1 12s infinite; }
-  .clip2 rect { animation: type2 12s infinite; }
-  .clip3 rect { animation: type3 12s infinite; }
-  @keyframes type1 { 0%{width:0} 3%{width:0} 11%{width:286px} 27%{width:286px} 33%{width:0} 100%{width:0} }
-  @keyframes type2 { 0%{width:0} 33%{width:0} 36%{width:0} 44%{width:404px} 60%{width:404px} 66%{width:0} 100%{width:0} }
-  @keyframes type3 { 0%{width:0} 66%{width:0} 69%{width:0} 77%{width:244px} 95%{width:244px} 100%{width:0} }
+  @keyframes glitch {
+    0%, 94%, 100% { transform: translate(0,0); opacity: 0; }
+    95% { transform: translate(-2.5px,0.8px); opacity: 0.55; }
+    97% { transform: translate(2.5px,-0.8px); opacity: 0.55; }
+    98.5% { transform: translate(-1.5px,0); opacity: 0.35; }
+  }
+  .clip1 rect { animation: type1 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .clip2 rect { animation: type2 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .clip3 rect { animation: type3 12s cubic-bezier(0.4, 0, 0.2, 1) infinite; }
+  .line1 { animation: fade1 12s ease-in-out infinite; }
+  .line2 { animation: fade2 12s ease-in-out infinite; }
+  .line3 { animation: fade3 12s ease-in-out infinite; }
+  @keyframes type1 { 0%, 2% { width: 0; } 12%, 28% { width: 290px; } 33%, 100% { width: 0; } }
+  @keyframes type2 { 0%, 34% { width: 0; } 44%, 61% { width: 410px; } 66%, 100% { width: 0; } }
+  @keyframes type3 { 0%, 67% { width: 0; } 77%, 94% { width: 250px; } 99%, 100% { width: 0; } }
+  @keyframes fade1 { 0%, 2% { opacity: 0; } 5%, 27% { opacity: 1; } 32%, 100% { opacity: 0; } }
+  @keyframes fade2 { 0%, 34% { opacity: 0; } 37%, 60% { opacity: 1; } 65%, 100% { opacity: 0; } }
+  @keyframes fade3 { 0%, 67% { opacity: 0; } 70%, 93% { opacity: 1; } 98%, 100% { opacity: 0; } }
 </style>
 
-<radialGradient id="bgGrad3" cx="50%" cy="20%" r="90%">
+<radialGradient id="bgGradHero" cx="50%" cy="20%" r="90%">
   <stop offset="0%" stop-color="#161B22"/>
   <stop offset="55%" stop-color="#0D1117"/>
   <stop offset="100%" stop-color="#090C10"/>
 </radialGradient>
 
-<radialGradient id="vignette3" cx="50%" cy="50%" r="75%">
+<radialGradient id="vignetteHero" cx="50%" cy="50%" r="75%">
   <stop offset="60%" stop-color="#000000" stop-opacity="0"/>
-  <stop offset="100%" stop-color="#000000" stop-opacity="0.5"/>
+  <stop offset="100%" stop-color="#000000" stop-opacity="0.48"/>
 </radialGradient>
 
-<linearGradient id="rgbBorderHero" gradientUnits="userSpaceOnUse" x1="0" y1="190" x2="900" y2="190">
-  <stop offset="0%" stop-color="#FF0000">
-    <animate attributeName="stop-color" values="#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF;#FF00FF;#FF0000" dur="3.5s" repeatCount="indefinite"/>
+<linearGradient id="rgbBorderHero" gradientUnits="userSpaceOnUse" x1="12" y1="190" x2="888" y2="190">
+  <stop offset="0%" stop-color="#FF0055">
+    <animate attributeName="stop-color" values="#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <stop offset="33%" stop-color="#00FF00">
-    <animate attributeName="stop-color" values="#00FF00;#00FFFF;#0000FF;#FF00FF;#FF0000;#FFFF00;#00FF00" dur="3.5s" repeatCount="indefinite"/>
+  <stop offset="25%" stop-color="#FFAA00">
+    <animate attributeName="stop-color" values="#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <stop offset="66%" stop-color="#0000FF">
-    <animate attributeName="stop-color" values="#0000FF;#FF00FF;#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF" dur="3.5s" repeatCount="indefinite"/>
+  <stop offset="50%" stop-color="#00FF88">
+    <animate attributeName="stop-color" values="#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <stop offset="100%" stop-color="#FF00FF">
-    <animate attributeName="stop-color" values="#FF00FF;#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF;#FF00FF" dur="3.5s" repeatCount="indefinite"/>
+  <stop offset="75%" stop-color="#00E5FF">
+    <animate attributeName="stop-color" values="#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF" dur="6s" repeatCount="indefinite"/>
   </stop>
-  <animateTransform attributeName="gradientTransform" type="rotate" from="0 450 190" to="360 450 190" dur="3.5s" repeatCount="indefinite"/>
+  <stop offset="100%" stop-color="#FF00AA">
+    <animate attributeName="stop-color" values="#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA" dur="6s" repeatCount="indefinite"/>
+  </stop>
+  <animateTransform attributeName="gradientTransform" type="rotate" from="0 450 190" to="360 450 190" dur="4s" repeatCount="indefinite"/>
 </linearGradient>
 
-<linearGradient id="scanGrad3" x1="0%" y1="0%" x2="0%" y2="100%">
+<linearGradient id="scanGradHero" x1="0%" y1="0%" x2="0%" y2="100%">
   <stop offset="0%" stop-color="#ffffff" stop-opacity="0"/>
-  <stop offset="50%" stop-color="#ffffff" stop-opacity="0.05"/>
+  <stop offset="50%" stop-color="#38bdf8" stop-opacity="0.06"/>
   <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
 </linearGradient>
 
-<filter id="glow3" x="-60%" y="-60%" width="220%" height="220%">
-  <feGaussianBlur stdDeviation="4" result="blur"/>
+<filter id="neonOuterHero" x="-10%" y="-15%" width="120%" height="130%">
+  <feGaussianBlur stdDeviation="5.5" result="blur"/>
   <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
 </filter>
 
-<filter id="softglow3" x="-80%" y="-80%" width="260%" height="260%">
-  <feGaussianBlur stdDeviation="10" result="blur"/>
-  <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+<filter id="neonInnerHero" x="-10%" y="-15%" width="120%" height="130%">
+  <feGaussianBlur stdDeviation="2" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+</filter>
+
+<filter id="glowTextHero" x="-30%" y="-40%" width="160%" height="180%">
+  <feGaussianBlur stdDeviation="3.5" result="blur"/>
+  <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
 </filter>
 
 <clipPath id="cardClipHero">
-  <rect x="3" y="3" width="894" height="374" rx="16"/>
+  <rect x="12" y="12" width="876" height="356" rx="16"/>
 </clipPath>
 </defs>
 
-<rect x="3" y="3" width="894" height="374" rx="16" fill="url(#bgGrad3)"/>
-<rect x="3" y="3" width="894" height="374" rx="16" fill="url(#vignette3)"/>
+<!-- outer neon shadow & ambient aura -->
+<rect x="12" y="12" width="876" height="356" rx="16" fill="none" stroke="url(#rgbBorderHero)" stroke-width="5.5" opacity="0.32" filter="url(#neonOuterHero)"/>
+<rect x="12" y="12" width="876" height="356" rx="16" fill="none" stroke="url(#rgbBorderHero)" stroke-width="2.6" opacity="0.55" filter="url(#neonInnerHero)"/>
 
-<rect x="3" y="3" width="894" height="374" rx="16" fill="none" stroke="url(#rgbBorderHero)" stroke-width="6" opacity="0.4" filter="url(#softglow3)"/>
-<rect x="3" y="3" width="894" height="374" rx="16" fill="none" stroke="url(#rgbBorderHero)" stroke-width="3.5"/>
+<!-- dark glass card body -->
+<rect x="12" y="12" width="876" height="356" rx="16" fill="url(#bgGradHero)"/>
+<rect x="12" y="12" width="876" height="356" rx="16" fill="url(#vignetteHero)"/>
 
-<path class="corner" d="M24 60 L24 24 L60 24"/>
-<path class="corner" d="M876 60 L876 24 L840 24"/>
-<path class="corner" d="M24 320 L24 356 L60 356"/>
-<path class="corner" d="M876 320 L876 356 L840 356"/>
-
+<!-- subtle grid & scanline inside card -->
 <g clip-path="url(#cardClipHero)">
-  <rect x="0" y="0" width="900" height="40" fill="url(#scanGrad3)" style="animation: scan 6s linear infinite;"/>
+  <line class="grid" x1="12" y1="72" x2="888" y2="72"/>
+  <line class="grid" x1="12" y1="190" x2="888" y2="190"/>
+  <line class="grid" x1="12" y1="308" x2="888" y2="308"/>
+  <rect x="12" y="12" width="876" height="40" fill="url(#scanGradHero)" style="animation: scan 6.5s linear infinite;"/>
 </g>
 
-<text x="450" y="108" text-anchor="middle" class="name" filter="url(#softglow3)">CHRISTIAN STEVEN MANURUNG</text>
-<text x="447" y="108" text-anchor="middle" class="name" fill="#00FFFF" style="animation: glitch 7s infinite;">CHRISTIAN STEVEN MANURUNG</text>
-<text x="453" y="108" text-anchor="middle" class="name" fill="#FF00FF" style="animation: glitch 7s infinite .1s;">CHRISTIAN STEVEN MANURUNG</text>
+<!-- razor-thin crisp rotating RGB border + smooth comet -->
+<rect x="12" y="12" width="876" height="356" rx="16" fill="none" stroke="url(#rgbBorderHero)" stroke-width="1.8" opacity="0.95"/>
+<rect x="12" y="12" width="876" height="356" rx="16" fill="none" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round" opacity="0.5" pathLength="1000" stroke-dasharray="90 910" filter="url(#neonInnerHero)">
+  <animate attributeName="stroke-dashoffset" from="0" to="-1000" dur="4s" repeatCount="indefinite"/>
+</rect>
+
+<!-- corner brackets -->
+<path class="corner" d="M30 58 L30 30 L58 30"/>
+<path class="corner" d="M870 58 L870 30 L842 30"/>
+<path class="corner" d="M30 322 L30 350 L58 350"/>
+<path class="corner" d="M870 322 L870 350 L842 350"/>
+
+<!-- title + subtle glitch -->
+<text x="450" y="108" text-anchor="middle" class="name" filter="url(#glowTextHero)">CHRISTIAN STEVEN MANURUNG</text>
+<text x="448" y="108" text-anchor="middle" class="name" fill="#00E5FF" style="animation: glitch 7s infinite;">CHRISTIAN STEVEN MANURUNG</text>
+<text x="452" y="108" text-anchor="middle" class="name" fill="#FF0055" style="animation: glitch 7s infinite .12s;">CHRISTIAN STEVEN MANURUNG</text>
 
 <text x="450" y="144" text-anchor="middle" class="sub">FULL-STACK WEB DEVELOPER &amp; SOFTWARE ENGINEERING STUDENT</text>
 
-<rect class="glowbar" x="380" y="162" width="140" height="2.5" fill="url(#rgbBorderHero)" filter="url(#glow3)"/>
+<rect class="glowbar" x="380" y="162" width="140" height="2" rx="1" fill="url(#rgbBorderHero)" filter="url(#glowTextHero)"/>
 
 <text x="450" y="196" text-anchor="middle" class="edu">NIM: 41425031  &#183;  SEMESTER 3 D4 TRPL  &#183;  INSTITUT TEKNOLOGI DEL</text>
 
-<clipPath id="clip1" class="clip1"><rect x="307" y="218" width="0" height="30"/></clipPath>
-<clipPath id="clip2" class="clip2"><rect x="248" y="218" width="0" height="30"/></clipPath>
-<clipPath id="clip3" class="clip3"><rect x="328" y="218" width="0" height="30"/></clipPath>
+<clipPath id="clip1" class="clip1"><rect x="305" y="216" width="0" height="30"/></clipPath>
+<clipPath id="clip2" class="clip2"><rect x="245" y="216" width="0" height="30"/></clipPath>
+<clipPath id="clip3" class="clip3"><rect x="325" y="216" width="0" height="30"/></clipPath>
 
-<text x="307" y="238" text-anchor="start" class="ach" clip-path="url(#clip1)">NIM: 41425031 &#8212; SEMESTER 3</text>
-<text x="248" y="238" text-anchor="start" class="ach" clip-path="url(#clip2)">D4 TEKNOLOGI REKAYASA PERANGKAT LUNAK</text>
-<text x="328" y="238" text-anchor="start" class="ach" clip-path="url(#clip3)">INSTITUT TEKNOLOGI DEL</text>
+<text x="305" y="236" text-anchor="start" class="ach line1" clip-path="url(#clip1)">NIM: 41425031 &#8212; SEMESTER 3</text>
+<text x="245" y="236" text-anchor="start" class="ach line2" clip-path="url(#clip2)">D4 TEKNOLOGI REKAYASA PERANGKAT LUNAK</text>
+<text x="325" y="236" text-anchor="start" class="ach line3" clip-path="url(#clip3)">INSTITUT TEKNOLOGI DEL</text>
 
+<!-- open to work badge with seamless trace -->
 <g>
-  <rect x="356" y="282" width="188" height="42" rx="10" fill="#161B22" stroke="url(#rgbBorderHero)" stroke-width="2" filter="url(#glow3)"/>
-  <rect class="trace" x="356" y="282" width="188" height="42" rx="10" stroke="#00FFFF"/>
-  <circle cx="378" cy="303" r="4" fill="#22c55e"/>
-  <text x="454" y="308" text-anchor="middle" class="status-text">OPEN TO WORK</text>
+  <rect x="356" y="280" width="188" height="42" rx="10" fill="none" stroke="url(#rgbBorderHero)" stroke-width="3" opacity="0.35" filter="url(#neonInnerHero)"/>
+  <rect x="356" y="280" width="188" height="42" rx="10" fill="#161B22" stroke="url(#rgbBorderHero)" stroke-width="1.4"/>
+  <rect x="356" y="280" width="188" height="42" rx="10" fill="none" stroke="#00E5FF" stroke-width="1.8" stroke-linecap="round" pathLength="300" stroke-dasharray="48 252" filter="url(#glowTextHero)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-300" dur="3.2s" repeatCount="indefinite"/>
+  </rect>
+  <circle cx="378" cy="301" r="4" fill="#22c55e"/>
+  <circle cx="378" cy="301" r="4" fill="none" stroke="#22c55e" stroke-width="1.5">
+    <animate attributeName="r" values="4;9" dur="2s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.8;0" dur="2s" repeatCount="indefinite"/>
+  </circle>
+  <text x="454" y="306" text-anchor="middle" class="status-text">OPEN TO WORK</text>
 </g>
 </svg>

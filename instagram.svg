@@ -2,73 +2,81 @@
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0%" stop-color="#0D1117"/>
-      <stop offset="55%" stop-color="#161B22"/>
+      <stop offset="55%" stop-color="#131922"/>
       <stop offset="100%" stop-color="#0D1117"/>
     </linearGradient>
 
-    <linearGradient id="rgbEdge" gradientUnits="userSpaceOnUse" x1="0" y1="39" x2="260" y2="39">
-      <stop offset="0%" stop-color="#FF0000">
-        <animate attributeName="stop-color" values="#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF;#FF00FF;#FF0000" dur="3.4s" begin="1.05s" repeatCount="indefinite"/>
+    <linearGradient id="rgbEdge" gradientUnits="userSpaceOnUse" x1="6" y1="39" x2="254" y2="39">
+      <stop offset="0%" stop-color="#FF0055">
+        <animate attributeName="stop-color" values="#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055" dur="5.5s" begin="1.05s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="33%" stop-color="#00FF00">
-        <animate attributeName="stop-color" values="#00FF00;#00FFFF;#0000FF;#FF00FF;#FF0000;#FFFF00;#00FF00" dur="3.4s" begin="1.05s" repeatCount="indefinite"/>
+      <stop offset="33%" stop-color="#00FF88">
+        <animate attributeName="stop-color" values="#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88" dur="5.5s" begin="1.05s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="66%" stop-color="#0000FF">
-        <animate attributeName="stop-color" values="#0000FF;#FF00FF;#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF" dur="3.4s" begin="1.05s" repeatCount="indefinite"/>
+      <stop offset="66%" stop-color="#00E5FF">
+        <animate attributeName="stop-color" values="#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF" dur="5.5s" begin="1.05s" repeatCount="indefinite"/>
       </stop>
-      <stop offset="100%" stop-color="#FF00FF">
-        <animate attributeName="stop-color" values="#FF00FF;#FF0000;#FFFF00;#00FF00;#00FFFF;#0000FF;#FF00FF" dur="3.4s" begin="1.05s" repeatCount="indefinite"/>
+      <stop offset="100%" stop-color="#FF00AA">
+        <animate attributeName="stop-color" values="#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA" dur="5.5s" begin="1.05s" repeatCount="indefinite"/>
       </stop>
-      <animateTransform attributeName="gradientTransform" type="rotate" from="0 130 39" to="360 130 39" dur="3.4s" begin="1.05s" repeatCount="indefinite"/>
+      <animateTransform attributeName="gradientTransform" type="rotate" from="0 130 39" to="360 130 39" dur="3.6s" begin="1.05s" repeatCount="indefinite"/>
     </linearGradient>
 
-    <filter id="glow" x="-60%" y="-60%" width="220%" height="220%">
-      <feGaussianBlur stdDeviation="2.6" result="b"/>
-      <feMerge><feMergeNode in="b"/><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    <filter id="neonOuter" x="-25%" y="-40%" width="150%" height="180%">
+      <feGaussianBlur stdDeviation="3.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="neonInner" x="-20%" y="-30%" width="140%" height="160%">
+      <feGaussianBlur stdDeviation="1.4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
     </filter>
 
     <filter id="soft" x="-40%" y="-40%" width="180%" height="180%">
-      <feGaussianBlur stdDeviation="1.1"/>
+      <feGaussianBlur stdDeviation="1.2"/>
     </filter>
 
     <clipPath id="clip">
-      <rect x="2" y="2" width="256" height="74" rx="12"/>
+      <rect x="6" y="6" width="248" height="66" rx="11"/>
     </clipPath>
 
     <pattern id="grid" width="13" height="13" patternUnits="userSpaceOnUse">
-      <path d="M13 0H0V13" fill="none" stroke="#38bdf8" stroke-width="0.4" opacity="0.06"/>
+      <path d="M13 0H0V13" fill="none" stroke="#38bdf8" stroke-width="0.4" opacity="0.055"/>
     </pattern>
 
     <linearGradient id="sweep" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0%" stop-color="#00FFFF" stop-opacity="0"/>
-      <stop offset="45%" stop-color="#00FFFF" stop-opacity="0.14"/>
-      <stop offset="55%" stop-color="#ffffff" stop-opacity="0.10"/>
-      <stop offset="100%" stop-color="#00FFFF" stop-opacity="0"/>
+      <stop offset="0%" stop-color="#00E5FF" stop-opacity="0"/>
+      <stop offset="45%" stop-color="#00E5FF" stop-opacity="0.12"/>
+      <stop offset="55%" stop-color="#ffffff" stop-opacity="0.08"/>
+      <stop offset="100%" stop-color="#00E5FF" stop-opacity="0"/>
     </linearGradient>
   </defs>
 
-  <rect x="2" y="2" width="256" height="74" rx="12" fill="url(#bg)"/>
-  <rect x="2" y="2" width="256" height="74" rx="12" fill="url(#grid)"/>
+  <rect x="6" y="6" width="248" height="66" rx="11" fill="none" stroke="url(#rgbEdge)" stroke-width="3.6" opacity="0.32" filter="url(#neonOuter)"/>
+  <rect x="6" y="6" width="248" height="66" rx="11" fill="none" stroke="url(#rgbEdge)" stroke-width="2" opacity="0.55" filter="url(#neonInner)"/>
 
-  <g filter="url(#glow)">
-    <rect x="2" y="2" width="256" height="74" rx="12"
-          fill="none" stroke="url(#rgbEdge)" stroke-width="3" opacity="0.95"/>
-  </g>
+  <rect x="6" y="6" width="248" height="66" rx="11" fill="url(#bg)"/>
+  <rect x="6" y="6" width="248" height="66" rx="11" fill="url(#grid)"/>
 
   <g clip-path="url(#clip)">
-    <rect x="-260" y="0" width="260" height="78" fill="url(#sweep)">
+    <rect x="-260" y="6" width="248" height="66" fill="url(#sweep)">
       <animate attributeName="x" from="-260" to="260" dur="4.2s" begin="1.05s" repeatCount="indefinite"/>
     </rect>
   </g>
 
-  <g stroke="#38bdf8" stroke-width="1.6" fill="none" stroke-linecap="round" opacity="0.9">
-    <path d="M10 20V13a3 3 0 0 1 3-3h7"/>
-    <path d="M250 20V13a3 3 0 0 0-3-3h-7"/>
-    <path d="M10 58v7a3 3 0 0 0 3 3h7"/>
-    <path d="M250 58v7a3 3 0 0 1-3 3h-7"/>
+  <rect x="6" y="6" width="248" height="66" rx="11" fill="none" stroke="url(#rgbEdge)" stroke-width="1.4" opacity="0.95"/>
+  <rect x="6" y="6" width="248" height="66" rx="11" fill="none" stroke="#ffffff" stroke-width="1.2" stroke-linecap="round" opacity="0.55" pathLength="1000" stroke-dasharray="90 910" filter="url(#neonInner)">
+    <animate attributeName="stroke-dashoffset" from="0" to="-1000" dur="3.6s" begin="1.05s" repeatCount="indefinite"/>
+  </rect>
+
+  <g stroke="#38bdf8" stroke-width="1.4" fill="none" stroke-linecap="round" opacity="0.9">
+    <path d="M13 22V16a3 3 0 0 1 3-3h6"/>
+    <path d="M247 22V16a3 3 0 0 0-3-3h-6"/>
+    <path d="M13 56v6a3 3 0 0 0 3 3h6"/>
+    <path d="M247 56v6a3 3 0 0 1-3 3h-6"/>
   </g>
 
-  <g transform="translate(24 27.0)">
+  <g transform="translate(26 27.0)">
     <g filter="url(#soft)" opacity="0.75">
       <rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
       <circle cx="12" cy="12" r="4.6" fill="none" stroke="#38bdf8" stroke-width="1.6"/>
@@ -80,22 +88,22 @@
   </g>
 
   <text x="66" y="35.0" font-family="'Fira Code','JetBrains Mono',ui-monospace,monospace"
-        font-size="14.5" font-weight="700" letter-spacing="2.4" fill="#ffffff">INSTAGRAM</text>
+        font-size="14" font-weight="700" letter-spacing="2.4" fill="#ffffff">INSTAGRAM</text>
 
   <g>
-    <circle cx="70" cy="52.0" r="2.6" fill="#22c55e">
-      <animate attributeName="opacity" values="1;0.15;1" dur="1.8s" begin="1.05s" repeatCount="indefinite"/>
+    <circle cx="70" cy="51.0" r="2.5" fill="#22c55e">
+      <animate attributeName="opacity" values="1;0.25;1" dur="2s" begin="1.05s" repeatCount="indefinite"/>
     </circle>
-    <text x="79" y="56.0" font-family="'Fira Code',ui-monospace,monospace"
-          font-size="9.5" letter-spacing="1.6" fill="#94a3b8">CONNECTED</text>
+    <text x="79" y="55.0" font-family="'Fira Code',ui-monospace,monospace"
+          font-size="9" letter-spacing="1.6" fill="#94a3b8">CONNECTED</text>
   </g>
 
-  <g stroke="#38bdf8" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M226 34.0 l5 5 -5 5">
-      <animate attributeName="opacity" values="0.35;1;0.35" dur="2.2s" begin="1.05s" repeatCount="indefinite"/>
+  <g stroke="#38bdf8" stroke-width="1.7" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M224 34.0 l5 5 -5 5">
+      <animate attributeName="opacity" values="0.3;1;0.3" dur="2.2s" begin="1.05s" repeatCount="indefinite"/>
     </path>
-    <path d="M232 34.0 l5 5 -5 5" opacity="0.4">
-      <animate attributeName="opacity" values="0.1;0.6;0.1" dur="2.2s" begin="1.3s" repeatCount="indefinite"/>
+    <path d="M230 34.0 l5 5 -5 5" opacity="0.4">
+      <animate attributeName="opacity" values="0.1;0.65;0.1" dur="2.2s" begin="1.3s" repeatCount="indefinite"/>
     </path>
   </g>
 </svg>
