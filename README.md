@@ -14,7 +14,7 @@
 <a href="https://t.me/your-username"><img src="./telegram.svg" height="78" alt="Telegram" /></a>&nbsp;
 <a href="https://x.com/your-username"><img src="./x.svg" height="78" alt="X / Twitter" /></a>
 <br/>
-<a href="https://instagram.com/your-username"><img src="./instagram.svg" height="78" alt="Instagram" /></a>&nbsp;
+<a href="https://instagram.com/your-username"><img src="./instagram.svg" height="78" alt="Instagram" />https://www.instagram.com/stevv_mnrg/</a>&nbsp;
 <a href="https://hackster.io/your-username"><img src="./hackster.svg" height="78" alt="Hackster" /></a>&nbsp;
 <a href="https://www.threads.net/@your-username"><img src="./threads.svg" height="78" alt="Threads" /></a>
 </div>
