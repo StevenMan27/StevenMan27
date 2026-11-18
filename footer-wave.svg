@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="180" viewBox="0 0 900 180" role="img" aria-label="Thanks For Visiting - Christian Steven Manurung">
+  <defs>
+    <radialGradient id="bgWave" cx="50%" cy="50%" r="85%">
+      <stop offset="0%" stop-color="#141a24"/>
+      <stop offset="60%" stop-color="#0D1117"/>
+      <stop offset="100%" stop-color="#090C10"/>
+    </radialGradient>
+
+    <linearGradient id="rgbWave" gradientUnits="userSpaceOnUse" x1="20" y1="90" x2="880" y2="90">
+      <stop offset="0%" stop-color="#FF0055" stop-opacity="0"/>
+      <stop offset="18%" stop-color="#FF0055">
+        <animate attributeName="stop-color" values="#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055" dur="5.5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="50%" stop-color="#00E5FF">
+        <animate attributeName="stop-color" values="#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF" dur="5.5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="82%" stop-color="#FF00AA">
+        <animate attributeName="stop-color" values="#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA" dur="5.5s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#00FF88" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="rgbBorderWave" gradientUnits="userSpaceOnUse" x1="12" y1="90" x2="888" y2="90">
+      <stop offset="0%" stop-color="#FF0055">
+        <animate attributeName="stop-color" values="#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="33%" stop-color="#00FF88">
+        <animate attributeName="stop-color" values="#00FF88;#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="66%" stop-color="#00E5FF">
+        <animate attributeName="stop-color" values="#00E5FF;#6366F1;#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" stop-color="#FF00AA">
+        <animate attributeName="stop-color" values="#FF00AA;#FF0055;#FFAA00;#00FF88;#00E5FF;#6366F1;#FF00AA" dur="6s" repeatCount="indefinite"/>
+      </stop>
+      <animateTransform attributeName="gradientTransform" type="rotate" from="0 450 90" to="360 450 90" dur="4.2s" repeatCount="indefinite"/>
+    </linearGradient>
+
+    <filter id="glowWave" x="-15%" y="-40%" width="130%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <filter id="neonOuterWave" x="-10%" y="-25%" width="120%" height="150%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+
+    <clipPath id="waveClip">
+      <rect x="12" y="12" width="876" height="156" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <!-- Subtle outer neon shadow -->
+  <rect x="12" y="12" width="876" height="156" rx="14" fill="none" stroke="url(#rgbBorderWave)" stroke-width="4" opacity="0.28" filter="url(#neonOuterWave)"/>
+
+  <!-- Dark card background -->
+  <rect x="12" y="12" width="876" height="156" rx="14" fill="url(#bgWave)"/>
+
+  <!-- Flowing Dual RGB Sine Waves -->
+  <g clip-path="url(#waveClip)">
+    <g>
+      <path d="M-300 95 Q-225 52 -150 95 T0 95 T150 95 T300 95 T450 95 T600 95 T750 95 T900 95 T1050 95 T1200 95"
+            fill="none" stroke="url(#rgbWave)" stroke-width="2.4" filter="url(#glowWave)">
+        <animateTransform attributeName="transform" type="translate" from="0 0" to="-300 0" dur="4s" repeatCount="indefinite"/>
+      </path>
+      <path d="M-300 95 Q-225 138 -150 95 T0 95 T150 95 T300 95 T450 95 T600 95 T750 95 T900 95 T1050 95 T1200 95"
+            fill="none" stroke="url(#rgbWave)" stroke-width="1.5" opacity="0.65">
+        <animateTransform attributeName="transform" type="translate" from="-300 0" to="0 0" dur="5.2s" repeatCount="indefinite"/>
+      </path>
+    </g>
+
+    <!-- Subtle ambient particles -->
+    <circle cx="140" cy="48" r="1.4" fill="#00E5FF" opacity="0.6">
+      <animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="310" cy="136" r="1.4" fill="#FF00AA" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.8s" begin="0.8s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="620" cy="44" r="1.4" fill="#00FF88" opacity="0.6">
+      <animate attributeName="opacity" values="0.2;0.85;0.2" dur="3.5s" begin="1.4s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="770" cy="138" r="1.4" fill="#FFAA00" opacity="0.5">
+      <animate attributeName="opacity" values="0.2;0.85;0.2" dur="4.1s" begin="0.4s" repeatCount="indefinite"/>
+    </circle>
+  </g>
+
+  <!-- Thin crisp rotating RGB border -->
+  <rect x="12" y="12" width="876" height="156" rx="14" fill="none" stroke="url(#rgbBorderWave)" stroke-width="1.4" opacity="0.85"/>
+
+  <!-- Centered Footer Typography -->
+  <text x="450" y="88" text-anchor="middle"
+        font-family="'Fira Code','JetBrains Mono',ui-monospace,monospace"
+        font-size="16.5" font-weight="700" letter-spacing="4.5" fill="#ffffff" filter="url(#glowWave)">THANKS FOR VISITING</text>
+  <text x="450" y="114" text-anchor="middle"
+        font-family="'Fira Code',ui-monospace,monospace"
+        font-size="11" letter-spacing="3" fill="#38bdf8">// KEEP BUILDING &#183; CHRISTIAN STEVEN MANURUNG</text>
+</svg>

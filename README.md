@@ -8,6 +8,12 @@
 </div>
 
 <div align="center">
+<br/>
+<a href="https://stevenman27.github.io/StevenMan27/#player"><img width="100%" src="./music-player.svg" alt="Play Shape Of My Heart - Backstreet Boys" /></a>
+</div>
+
+<div align="center">
+<br/>
 <img width="100%" src="./header.svg" alt="Connect Header" />
 <br/>
 <a href="https://www.linkedin.com/in/your-username"><img src="./linkedin.svg" height="78" alt="LinkedIn" /></a>&nbsp;
@@ -21,5 +27,5 @@
 
 <div align="center">
 <br/>
-<a href="https://stevenman27.github.io/StevenMan27/#player"><img width="100%" src="./music-player.svg" alt="Play Shape Of My Heart - Backstreet Boys" /></a>
+<img width="100%" src="./footer-wave.svg" alt="Thanks For Visiting - Christian Steven Manurung" />
 </div>
