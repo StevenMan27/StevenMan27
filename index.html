@@ -44,12 +44,11 @@
       display: block;
     }
 
-    /* Spotify Mobile Card */
-    .sp-wrap {
+    /* Spotify Desktop Split-View Container */
+    .desk-wrap {
       width: 100%;
-      max-width: 390px;
-      margin-top: 16px;
-      padding: 6px;
+      margin-top: 14px;
+      padding: 4px;
       position: relative;
     }
     @property --angle {
@@ -58,41 +57,53 @@
       inherits: false;
     }
     @keyframes spinRgb { to { --angle: 360deg; } }
-    .sp-glow {
+    .desk-glow {
       position: absolute;
-      inset: 4px;
-      border-radius: 30px;
+      inset: 2px;
+      border-radius: 20px;
       background: conic-gradient(from var(--angle, 0deg), #1DB954, #00E5FF, #6366F1, #FF00AA, #FF0055, #FFAA00, #1DB954);
       animation: spinRgb 4s linear infinite;
       z-index: 0;
     }
-    .sp-glow::before {
+    .desk-glow::before {
       content: "";
       position: absolute;
       inset: -4px;
-      border-radius: 32px;
+      border-radius: 22px;
       background: inherit;
       filter: blur(12px);
-      opacity: 0.45;
+      opacity: 0.42;
       z-index: -1;
     }
-    .sp-card {
+    .desk-card {
       position: relative;
       z-index: 1;
-      border-radius: 28px;
-      background: linear-gradient(180deg, #223254 0%, #17223a 48%, #0d1117 100%);
-      padding: 22px 26px 24px;
-      border: 1.5px solid transparent;
+      border-radius: 18px;
+      background: #0d1117;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: 290px 1fr;
+      gap: 12px;
+      border: 1.6px solid transparent;
       background-clip: padding-box;
+    }
+
+    /* Left Panel: Player */
+    .sp-left {
+      border-radius: 14px;
+      background: linear-gradient(180deg, #1e2d4d 0%, #141e33 52%, #0d1117 100%);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
     }
     .sp-top {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 13px;
+      font-size: 11.5px;
       font-weight: 700;
       color: #e2e8f0;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .sp-cover {
       width: 100%;
@@ -101,8 +112,8 @@
       overflow: hidden;
       display: flex;
       position: relative;
-      box-shadow: 0 12px 26px rgba(0,0,0,0.55);
-      margin-bottom: 24px;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.55);
+      margin-bottom: 18px;
     }
     .sp-cover-left {
       width: 50%;
@@ -115,15 +126,15 @@
     }
     .sp-vert {
       position: absolute;
-      left: 14px;
-      top: 12px;
-      bottom: 12px;
+      left: 11px;
+      top: 10px;
+      bottom: 10px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       font-family: 'Arial Black', sans-serif;
       font-weight: 900;
-      font-size: 13px;
+      font-size: 10px;
       line-height: 1;
       color: #ffffff;
       text-align: center;
@@ -137,50 +148,25 @@
       justify-content: center;
       font-family: 'Arial Black', sans-serif;
       font-weight: 900;
-      font-size: 27px;
-      letter-spacing: 0.5px;
+      font-size: 20px;
+      letter-spacing: 0.4px;
       pointer-events: none;
     }
-    .sp-black {
-      color: #3b4e83;
-      -webkit-text-stroke: 0.9px #ffffff;
-    }
-    .sp-amp {
-      color: #ffffff;
-      margin: 0 3px;
-    }
-    .sp-blue {
-      color: #050507;
-      -webkit-text-stroke: 0.9px #ffffff;
-    }
+    .sp-black { color: #3b4e83; -webkit-text-stroke: 0.7px #ffffff; }
+    .sp-amp { color: #ffffff; margin: 0 2px; }
+    .sp-blue { color: #050507; -webkit-text-stroke: 0.7px #ffffff; }
 
-    .sp-lyric {
-      min-height: 26px;
-      font-size: 16.5px;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 20px;
-      transition: opacity 0.2s ease;
-    }
     .sp-meta-row {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
     }
-    .sp-title {
-      font-size: 21px;
-      font-weight: 800;
-      color: #ffffff;
-    }
-    .sp-artist {
-      font-size: 14px;
-      color: #94a3b8;
-      margin-top: 2px;
-    }
+    .sp-title { font-size: 18px; font-weight: 800; color: #ffffff; }
+    .sp-artist { font-size: 12.5px; color: #94a3b8; margin-top: 2px; }
     .sp-check {
-      width: 26px;
-      height: 26px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
       background: #1DB954;
       display: flex;
@@ -191,7 +177,7 @@
 
     .sp-prog-bar {
       width: 100%;
-      height: 5px;
+      height: 4px;
       border-radius: 999px;
       background: rgba(255,255,255,0.22);
       cursor: pointer;
@@ -207,11 +193,11 @@
     .sp-prog-fill::after {
       content: "";
       position: absolute;
-      right: -6px;
+      right: -5px;
       top: 50%;
       transform: translateY(-50%);
-      width: 12px;
-      height: 12px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background: #ffffff;
       box-shadow: 0 0 6px rgba(255,255,255,0.7);
@@ -219,25 +205,25 @@
     .sp-times {
       display: flex;
       justify-content: space-between;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
       color: #94a3b8;
-      margin-top: 7px;
-      margin-bottom: 14px;
+      margin-top: 6px;
+      margin-bottom: 12px;
     }
 
     .sp-controls {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 18px;
+      margin-bottom: 14px;
     }
     .sp-icon-btn {
       background: none;
       border: none;
       color: #ffffff;
       cursor: pointer;
-      padding: 6px;
+      padding: 4px;
       opacity: 0.9;
       display: flex;
       align-items: center;
@@ -245,8 +231,8 @@
     }
     .sp-icon-btn:hover { opacity: 1; }
     .sp-play-btn {
-      width: 58px;
-      height: 58px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       border: none;
       background: #ffffff;
@@ -255,7 +241,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 20px rgba(255,255,255,0.25);
+      box-shadow: 0 0 18px rgba(255,255,255,0.25);
       transition: transform 0.15s ease;
     }
     .sp-play-btn:hover { transform: scale(1.06); }
@@ -264,32 +250,114 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      margin-top: auto;
     }
     .sp-device {
       display: flex;
       align-items: center;
-      gap: 7px;
+      gap: 6px;
       color: #1DB954;
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       letter-spacing: 1px;
     }
-    .sp-hint {
-      text-align: center;
-      font-size: 11.5px;
-      color: #94a3b8;
-      margin-top: 12px;
-      font-family: 'Fira Code', ui-monospace, monospace;
+    .vol-mini {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .vol-mini input[type="range"] {
+      width: 64px;
+      accent-color: #1DB954;
+      cursor: pointer;
     }
 
-    #yt-audio-host {
-      position: fixed;
-      width: 1px;
-      height: 1px;
-      left: -9999px;
-      top: -9999px;
-      opacity: 0;
-      pointer-events: none;
+    /* Right Panel: Spotify Desktop Scrolling Lyrics */
+    .sp-right {
+      border-radius: 14px;
+      background: linear-gradient(180deg, #223769 0%, #192a52 100%);
+      padding: 18px 26px;
+      display: flex;
+      flex-direction: column;
+      height: 486px;
+      position: relative;
+      overflow: hidden;
+    }
+    .lyrics-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      z-index: 3;
+    }
+    .lyrics-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Fira Code', ui-monospace, monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.6px;
+      color: #9db4e0;
+    }
+    .lyrics-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1DB954;
+      box-shadow: 0 0 8px #1DB954;
+    }
+    .lyrics-viewport {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
+    .lyrics-track {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      padding: 8px 0;
+    }
+    .lyric-item {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      font-size: 19px;
+      font-weight: 800;
+      color: #9db4e0;
+      cursor: pointer;
+      transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .lyric-item:hover {
+      color: #ffffff;
+    }
+    .lyric-item.past {
+      color: #5d76a8;
+    }
+    .lyric-item.active {
+      color: #ffffff;
+      transform: scale(1.02);
+      transform-origin: left center;
+      text-shadow: 0 0 18px rgba(255,255,255,0.22);
+    }
+
+    @media (max-width: 780px) {
+      .desk-card {
+        grid-template-columns: 1fr;
+      }
+      .sp-right {
+        height: 320px;
+      }
+      .lyric-item {
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -303,156 +371,185 @@
       <a href="https://www.linkedin.com/in/your-username"><img src="./linkedin.svg" alt="LinkedIn" /></a>
       <a href="https://t.me/your-username"><img src="./telegram.svg" alt="Telegram" /></a>
       <a href="https://x.com/your-username"><img src="./x.svg" alt="X / Twitter" /></a>
-      <a href="https://instagram.com/your-username"><img src="./instagram.svg" alt="Instagram" /></a>
+      <a href="https://www.instagram.com/stevv_mnrg/"><img src="./instagram.svg" alt="Instagram" /></a>
       <a href="https://hackster.io/your-username"><img src="./hackster.svg" alt="Hackster" /></a>
       <a href="https://www.threads.net/@your-username"><img src="./threads.svg" alt="Threads" /></a>
     </div>
 
-    <!-- Interactive Spotify Card -->
-    <div id="player" class="sp-wrap">
-      <div class="sp-glow"></div>
-      <div class="sp-card">
-        <div class="sp-top">
-          <span>⌄</span>
-          <span>Shape of my heart holic</span>
-          <span>•••</span>
-        </div>
+    <!-- Spotify Desktop Split-View Player -->
+    <div id="player" class="desk-wrap">
+      <div class="desk-glow"></div>
+      <div class="desk-card">
+        <!-- Left: Player Controls -->
+        <div class="sp-left">
+          <div class="sp-top">
+            <span>⌄</span>
+            <span>Shape of my heart holic</span>
+            <span>•••</span>
+          </div>
 
-        <div class="sp-cover">
-          <div class="sp-cover-left">
-            <div class="sp-vert">
-              <span>B</span><span>A</span><span>C</span><span>K</span><span>S</span><span>T</span><span>R</span><span>E</span><span>E</span><span>T</span>
-              <span style="margin-top:8px;">B</span><span>O</span><span>Y</span><span>S</span>
+          <div class="sp-cover">
+            <div class="sp-cover-left">
+              <div class="sp-vert">
+                <span>B</span><span>A</span><span>C</span><span>K</span><span>S</span><span>T</span><span>R</span><span>E</span><span>E</span><span>T</span>
+                <span style="margin-top:6px;">B</span><span>O</span><span>Y</span><span>S</span>
+              </div>
+            </div>
+            <div class="sp-cover-right"></div>
+            <div class="sp-cover-title">
+              <span class="sp-black">BLACK</span><span class="sp-amp">&amp;</span><span class="sp-blue">BLUE</span>
             </div>
           </div>
-          <div class="sp-cover-right"></div>
-          <div class="sp-cover-title">
-            <span class="sp-black">BLACK</span><span class="sp-amp">&amp;</span><span class="sp-blue">BLUE</span>
+
+          <div class="sp-meta-row">
+            <div>
+              <div class="sp-title">Shape of My Heart</div>
+              <div class="sp-artist">Backstreet Boys</div>
+            </div>
+            <div class="sp-check">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0d1117" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+          </div>
+
+          <div id="progressBar" class="sp-prog-bar" title="Seek">
+            <div id="progressFill" class="sp-prog-fill"></div>
+          </div>
+          <div class="sp-times">
+            <span id="elapsedTime">0:00</span>
+            <span id="remainingTime">-3:49</span>
+          </div>
+
+          <div class="sp-controls">
+            <button id="chorusBtn" class="sp-icon-btn" title="Jump to Chorus (1:12)">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
+            </button>
+            <button id="prevBtn" class="sp-icon-btn" title="Restart">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="5" width="3" height="14" rx="1"/><polygon points="20 5 20 19 8 12"/></svg>
+            </button>
+            <button id="playPauseBtn" class="sp-play-btn" aria-label="Play or Pause">
+              <svg id="playIcon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+              <svg id="pauseIcon" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
+            </button>
+            <button id="nextBtn" class="sp-icon-btn" title="Next Chorus">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="4 5 4 19 16 12"/><rect x="17" y="5" width="3" height="14" rx="1"/></svg>
+            </button>
+            <button class="sp-icon-btn" style="color:#1DB954;" title="Repeat On">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
+            </button>
+          </div>
+
+          <div class="sp-bottom">
+            <div class="sp-device">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#1DB954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="1" y1="20" x2="23" y2="20"/></svg>
+              <span>STEVENM</span>
+            </div>
+            <div class="vol-mini" title="Volume">
+              <span style="font-size:12px;">🔊</span>
+              <input id="volumeSlider" type="range" min="0" max="1" step="0.02" value="0.85" />
+            </div>
           </div>
         </div>
 
-        <div id="lyricLine" class="sp-lyric">Loneliness is tragical</div>
-
-        <div class="sp-meta-row">
-          <div>
-            <div class="sp-title">Shape of My Heart</div>
-            <div class="sp-artist">Backstreet Boys</div>
+        <!-- Right: Scrolling Spotify Lyrics -->
+        <div class="sp-right">
+          <div class="lyrics-head">
+            <div class="lyrics-badge">
+              <span class="lyrics-dot"></span>
+              <span id="statusText">KLIK PLAY ▶ UNTUK MEMUTAR AUDIO</span>
+            </div>
           </div>
-          <div class="sp-check">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#0d1117" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-        </div>
-
-        <div id="progressBar" class="sp-prog-bar" title="Seek">
-          <div id="progressFill" class="sp-prog-fill"></div>
-        </div>
-        <div class="sp-times">
-          <span id="elapsedTime">0:00</span>
-          <span id="remainingTime">-3:51</span>
-        </div>
-
-        <div class="sp-controls">
-          <button id="restartBtn" class="sp-icon-btn" title="Shuffle / Restart">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 3 21 3 21 8"/><line x1="4" y1="20" x2="21" y2="3"/><polyline points="21 16 21 21 16 21"/><line x1="15" y1="15" x2="21" y2="21"/><line x1="4" y1="4" x2="9" y2="9"/></svg>
-          </button>
-          <button id="prevBtn" class="sp-icon-btn" title="Restart Track">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="4" y="5" width="3" height="14" rx="1"/><polygon points="20 5 20 19 8 12"/></svg>
-          </button>
-          <button id="playPauseBtn" class="sp-play-btn" aria-label="Play or Pause">
-            <svg id="playIcon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-            <svg id="pauseIcon" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="display:none;"><path d="M6 5h4v14H6zm8 0h4v14h-4z"/></svg>
-          </button>
-          <button id="nextBtn" class="sp-icon-btn" title="Next">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="4 5 4 19 16 12"/><rect x="17" y="5" width="3" height="14" rx="1"/></svg>
-          </button>
-          <button class="sp-icon-btn" style="color:#1DB954;" title="Repeat On">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg>
-          </button>
-        </div>
-
-        <div class="sp-bottom">
-          <div class="sp-device">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1DB954" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><line x1="1" y1="20" x2="23" y2="20"/></svg>
-            <span>STEVENM</span>
-          </div>
-          <div style="display:flex;gap:14px;color:#cbd5e1;">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          <div id="lyricsViewport" class="lyrics-viewport">
+            <div id="lyricsTrack" class="lyrics-track"></div>
           </div>
         </div>
-
-        <div id="audioHint" class="sp-hint">Klik tombol Play / di mana saja untuk mendengar suara 🔊</div>
       </div>
     </div>
   </div>
 
-  <div id="yt-audio-host"><div id="yt-player"></div></div>
+  <audio id="localAudio" src="./BSB_ShapeOfMyHeart.mp3" preload="auto" loop></audio>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
   <script>
-    const VIDEO_ID = "OT5gsOkUPkk";
     const LYRICS = [
-      [0, "♪ Shape of My Heart — Intro"],
-      [12.6, "Baby, please try to forgive me"],
-      [19.9, "Stay here, don't put out the glow"],
-      [29.8, "Hold me now, don't bother"],
-      [33.9, "If every minute it makes me weaker"],
-      [38.2, "You can save me"],
-      [41.7, "From the man that I've become"],
-      [48.4, "Looking back on the things I've done"],
-      [53.2, "I was tryin' to be someone"],
-      [58.0, "I played my part"],
-      [60.6, "And kept you in the dark"],
-      [63.9, "Now let me show you the shape of my heart"],
-      [72.1, "Sadness is beautiful"],
-      [77.2, "Loneliness is tragical"],
-      [81.6, "So help me, I can't win this war"],
-      [92.2, "Touch me now, don't bother"],
-      [96.4, "If every second it makes me weaker"],
-      [100.7, "You can save me"],
-      [104.1, "From the man I've become"],
-      [110.8, "Looking back on the things I've done"],
-      [115.7, "I was tryin' to be someone"],
-      [120.2, "I played my part"],
-      [123.1, "And kept you in the dark"],
-      [126.0, "Now let me show you the shape of my heart"],
-      [132.7, "I'm here with my confession"],
-      [137.2, "Got nothin' to hide no more"],
-      [141.5, "I don't know where to start"],
-      [146.3, "But to show you the shape of my heart"],
-      [157.4, "I'm looking back on things I've done"],
-      [162.5, "I never wanna play the same old part"],
-      [168.1, "Or keep you in the dark"],
-      [172.3, "Now let me show you the shape of my heart"],
-      [177.1, "Looking back on the things I've done"],
-      [180.9, "I was tryin' to be someone"],
-      [185.2, "I played my part"],
-      [188.0, "And kept you in the dark"],
-      [191.2, "Now let me show you the shape of my heart"],
-      [197.0, "Looking back on the things I've done"],
-      [200.6, "I was tryin' to be someone"],
-      [205.1, "I played my part"],
-      [208.1, "And kept you in the dark"],
-      [211.1, "Now let me show you the shape of my heart"],
-      [217.0, "Show you the shape of my heart"]
+      [0, "♪"],
+      [5.0, "Mm-mm"],
+      [8.0, "Yeah, yeah"],
+      [12.2, "Baby, please try to forgive me"],
+      [19.2, "Stay here, don't put out the glow"],
+      [29.2, "Hold me now, don't bother"],
+      [33.5, "If every minute it makes me weaker"],
+      [38.0, "You can save me"],
+      [41.4, "From the man that I've become"],
+      [46.2, "Oh, yeah"],
+      [48.2, "Looking back on the things I've done"],
+      [53.0, "I was trying to be someone"],
+      [57.8, "I played my part"],
+      [60.2, "Kept you in the dark"],
+      [63.5, "Now let me show you the shape of my heart"],
+      [72.0, "Sadness is beautiful"],
+      [77.0, "Loneliness is tragical"],
+      [81.3, "So help me, I can't win this war"],
+      [89.0, "Oh, no"],
+      [92.0, "Touch me now, don't bother"],
+      [96.2, "If every second it makes me weaker"],
+      [100.4, "You can save me"],
+      [104.0, "From the man I've become"],
+      [110.5, "Looking back on the things I've done"],
+      [115.4, "I was trying to be someone"],
+      [120.0, "I played my part"],
+      [122.9, "Kept you in the dark"],
+      [125.8, "Now let me show you the shape of my heart"],
+      [132.5, "I'm here with my confession"],
+      [137.0, "Got nothing to hide no more"],
+      [141.3, "I don't know where to start"],
+      [146.1, "But to show you the shape of my heart"],
+      [157.2, "I'm looking back on things I've done"],
+      [162.3, "I never wanna play the same old part"],
+      [167.8, "Or keep you in the dark"],
+      [172.0, "Now let me show you the shape of my heart"],
+      [176.9, "Looking back on the things I've done"],
+      [180.7, "I was trying to be someone"],
+      [185.0, "I played my part"],
+      [187.8, "Kept you in the dark"],
+      [191.0, "Now let me show you the shape of my heart"],
+      [196.8, "Looking back on the things I've done"],
+      [200.4, "I was trying to be someone"],
+      [204.9, "I played my part"],
+      [207.8, "Kept you in the dark"],
+      [211.0, "Now let me show you the shape of my heart"],
+      [216.8, "Show you the shape of my heart"]
     ];
 
-    let player = null;
-    let isPlaying = false;
-    let playerReady = false;
-    let userWantedPlay = false;
-
-    const lyricLine = document.getElementById("lyricLine");
+    const audio = document.getElementById("localAudio");
+    const playPauseBtn = document.getElementById("playPauseBtn");
     const playIcon = document.getElementById("playIcon");
     const pauseIcon = document.getElementById("pauseIcon");
+    const prevBtn = document.getElementById("prevBtn");
+    const nextBtn = document.getElementById("nextBtn");
+    const chorusBtn = document.getElementById("chorusBtn");
     const progressBar = document.getElementById("progressBar");
     const progressFill = document.getElementById("progressFill");
     const elapsedTime = document.getElementById("elapsedTime");
     const remainingTime = document.getElementById("remainingTime");
-    const playPauseBtn = document.getElementById("playPauseBtn");
-    const prevBtn = document.getElementById("prevBtn");
-    const restartBtn = document.getElementById("restartBtn");
-    const audioHint = document.getElementById("audioHint");
+    const volumeSlider = document.getElementById("volumeSlider");
+    const statusText = document.getElementById("statusText");
+    const lyricsViewport = document.getElementById("lyricsViewport");
+    const lyricsTrack = document.getElementById("lyricsTrack");
+
+    // Populate lyric rows
+    const lyricEls = LYRICS.map(([time, text], idx) => {
+      const div = document.createElement("div");
+      div.className = "lyric-item";
+      div.textContent = text;
+      div.title = "Klik untuk lompat ke bagian ini";
+      div.addEventListener("click", () => {
+        audio.currentTime = time;
+        audio.play().catch(() => {});
+      });
+      lyricsTrack.appendChild(div);
+      return div;
+    });
+
+    let lastActiveIdx = -1;
 
     function formatTime(sec) {
       sec = Math.max(0, Math.floor(sec));
@@ -461,94 +558,92 @@
       return m + ":" + (s < 10 ? "0" : "") + s;
     }
 
-    function updateUI(playing) {
-      isPlaying = playing;
+    function updatePlayUI(playing) {
       playIcon.style.display = playing ? "none" : "block";
       pauseIcon.style.display = playing ? "block" : "none";
-      audioHint.textContent = playing
-        ? "Playing audio · Backstreet Boys — Shape of My Heart 🎵"
-        : "Paused · Klik Play untuk lanjut memutar audio 🔊";
+      statusText.textContent = playing
+        ? "NOW PLAYING · BSB_ShapeOfMyHeart.mp3 🎵"
+        : "PAUSED · KLIK PLAY ▶ UNTUK MEMUTAR AUDIO";
     }
 
-    window.onYouTubeIframeAPIReady = function () {
-      player = new YT.Player("yt-player", {
-        height: "1",
-        width: "1",
-        videoId: VIDEO_ID,
-        playerVars: { autoplay: 1, controls: 0, loop: 1, playlist: VIDEO_ID },
-        events: {
-          onReady: function (e) {
-            playerReady = true;
-            e.target.setVolume(85);
-            e.target.playVideo();
-            if (userWantedPlay) {
-              e.target.unMute();
-              e.target.playVideo();
-            }
-          },
-          onStateChange: function (e) {
-            if (e.data === YT.PlayerState.PLAYING) updateUI(true);
-            else if (e.data === YT.PlayerState.PAUSED || e.data === YT.PlayerState.ENDED) updateUI(false);
-          }
-        }
+    function updateLyricsScroll(activeIdx) {
+      const vpH = lyricsViewport.clientHeight || 420;
+      const lineH = 38;
+      const centerOffset = vpH * 0.42;
+      const shift = Math.min(0, centerOffset - activeIdx * lineH);
+      lyricsTrack.style.transform = `translateY(${shift}px)`;
+
+      lyricEls.forEach((el, idx) => {
+        el.classList.toggle("active", idx === activeIdx);
+        el.classList.toggle("past", idx < activeIdx);
       });
-    };
-
-    function togglePlay() {
-      userWantedPlay = true;
-      if (!playerReady || !player) return;
-      if (isPlaying) player.pauseVideo();
-      else {
-        player.unMute();
-        player.playVideo();
-      }
     }
 
-    playPauseBtn.addEventListener("click", function (e) { e.stopPropagation(); togglePlay(); });
-    prevBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      if (playerReady && player) { player.seekTo(0, true); player.unMute(); player.playVideo(); }
-    });
-    restartBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      if (playerReady && player) { player.seekTo(72, true); player.unMute(); player.playVideo(); }
-    });
-
-    document.addEventListener("click", function () {
-      userWantedPlay = true;
-      if (!isPlaying && playerReady && player) {
-        player.unMute();
-        player.playVideo();
-      }
-    }, { once: true });
-
-    progressBar.addEventListener("click", function (e) {
-      e.stopPropagation();
-      if (!playerReady || !player) return;
-      const dur = player.getDuration() || 231;
-      const rect = progressBar.getBoundingClientRect();
-      const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
-      player.seekTo(ratio * dur, true);
-      if (!isPlaying) { player.unMute(); player.playVideo(); }
-    });
-
-    setInterval(function () {
-      if (!playerReady || !player || typeof player.getCurrentTime !== "function") return;
-      const cur = player.getCurrentTime() || 0;
-      const dur = player.getDuration() || 231;
+    function syncAll() {
+      const cur = audio.currentTime || 0;
+      const dur = audio.duration || 229;
       const pct = dur > 0 ? Math.min(100, (cur / dur) * 100) : 0;
       progressFill.style.width = pct.toFixed(2) + "%";
       elapsedTime.textContent = formatTime(cur);
       remainingTime.textContent = "-" + formatTime(Math.max(0, dur - cur));
 
-      let activeText = LYRICS[0][1];
+      let activeIdx = 0;
       for (let i = 0; i < LYRICS.length; i++) {
-        if (cur >= LYRICS[i][0]) activeText = LYRICS[i][1];
+        if (cur >= LYRICS[i][0]) activeIdx = i;
       }
-      if (lyricLine.textContent !== activeText) {
-        lyricLine.textContent = activeText;
+      if (activeIdx !== lastActiveIdx) {
+        lastActiveIdx = activeIdx;
+        updateLyricsScroll(activeIdx);
       }
-    }, 250);
+    }
+
+    audio.volume = Number(volumeSlider.value);
+    audio.addEventListener("play", () => updatePlayUI(true));
+    audio.addEventListener("pause", () => updatePlayUI(false));
+    audio.addEventListener("timeupdate", syncAll);
+
+    playPauseBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (audio.paused) audio.play().catch(() => {});
+      else audio.pause();
+    });
+
+    prevBtn.addEventListener("click", () => {
+      audio.currentTime = 0;
+      audio.play().catch(() => {});
+    });
+
+    chorusBtn.addEventListener("click", () => {
+      audio.currentTime = 72;
+      audio.play().catch(() => {});
+    });
+
+    nextBtn.addEventListener("click", () => {
+      audio.currentTime = 157;
+      audio.play().catch(() => {});
+    });
+
+    progressBar.addEventListener("click", (e) => {
+      const dur = audio.duration || 229;
+      const rect = progressBar.getBoundingClientRect();
+      const ratio = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      audio.currentTime = ratio * dur;
+      audio.play().catch(() => {});
+    });
+
+    volumeSlider.addEventListener("input", () => {
+      audio.volume = Number(volumeSlider.value);
+    });
+
+    // Try autoplay on load; if browser requires gesture, first click anywhere starts audio
+    audio.play().catch(() => {
+      document.addEventListener("click", () => {
+        if (audio.paused) audio.play().catch(() => {});
+      }, { once: true });
+    });
+
+    updateLyricsScroll(0);
+    window.addEventListener("resize", () => updateLyricsScroll(Math.max(0, lastActiveIdx)));
   </script>
 </body>
 </html>

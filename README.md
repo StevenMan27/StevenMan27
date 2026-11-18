@@ -21,5 +21,5 @@
 
 <div align="center">
 <br/>
-<a href="https://stevenman27.github.io/StevenMan27/#player"><img width="370" src="./music-player.svg" alt="Play Shape Of My Heart - Backstreet Boys" /></a>
+<a href="https://stevenman27.github.io/StevenMan27/#player"><img width="100%" src="./music-player.svg" alt="Play Shape Of My Heart - Backstreet Boys" /></a>
 </div>
