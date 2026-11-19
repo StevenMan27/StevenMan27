@@ -27,5 +27,10 @@
 
 <div align="center">
 <br/>
+<img width="100%" src="./pacman.svg" alt="Pac-Man Arcade" />
+</div>
+
+<div align="center">
+<br/>
 <img width="100%" src="./footer-wave.svg" alt="Thanks For Visiting - Christian Steven Manurung" />
 </div>
