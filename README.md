@@ -14,6 +14,16 @@
 
 <div align="center">
 <br/>
+<img width="100%" src="./mario.svg" alt="Super Mario Bros Arcade" />
+</div>
+
+<div align="center">
+<br/>
+<img width="100%" src="./tetris.svg" alt="Tetris Neon Arcade" />
+</div>
+
+<div align="center">
+<br/>
 <a href="https://stevenman27.github.io/StevenMan27/#player"><img width="100%" src="./music-player.svg" alt="Play Shape Of My Heart - Backstreet Boys" /></a>
 </div>
 
